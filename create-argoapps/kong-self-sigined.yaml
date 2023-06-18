@@ -2,6 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: sandbox-kong-selfsigned-issuer-root
+  namespace: kong
 spec:
   selfSigned: {}
 ---
@@ -9,6 +10,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: sandbox-kong-selfsigned-issuer-ca
+  namespace: kong
 spec:
   commonName: sandbox-kong-selfsigned-issuer-ca
   duration: 2160h0m0s
@@ -17,6 +19,7 @@ spec:
     group: cert-manager.io
     kind: Issuer
     name: sandbox-kong-selfsigned-issuer-root
+    namespace: kong
   privateKey:
     algorithm: ECDSA
     size: 256
@@ -27,6 +30,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: sandbox-kong-selfsigned-issuer
+  namespace: kong
 spec:
   ca:
     secretName: sandbox-kong-selfsigned-issuer-ca
