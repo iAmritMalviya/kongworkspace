@@ -9,4 +9,6 @@ References :
             https://docs.konghq.com/kubernetes-ingress-controller/latest/references/custom-resources/
 3.  Provisioning Consumers and Credentials 
             https://docs.konghq.com/kubernetes-ingress-controller/latest/guides/using-consumer-credential-resource/
+4. Kong Konnect
+            https://docs.konghq.com/konnect/            
 
