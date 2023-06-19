@@ -1,63 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-prometheus-stack-crds
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-  labels:
-    name: kube-prometheus-stack-crds
-spec:
-  project: default
-  source:
-    repoURL: 'https://prometheus-community.github.io/helm-charts'
-    targetRevision: 4.0.2
-    helm:
-      valueFiles:
-        - values.yaml
-    chart: prometheus-operator-crds
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: monitoring
-  syncPolicy:
-    automated: {}
-    syncOptions:
-      - ServerSideApply=true
-      - CreateNamespace=true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
-  name: kube-prometheus-stack
-  namespace: argocd
-spec:
-  destination:
-    namespace: monitoring
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    chart: kube-prometheus-stack
-    helm:
-      values: |-
-        prometheus-node-exporter:
-           hostRootFsMount:
-             enabled: false
-        prometheusOperator:
-           admissionWebhooks:
-             failurePolicy: Ignore
-    repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 42.0.3
-  syncPolicy:
-    automated: {}
-    syncOptions:
-    - ServerSideApply=true
-    - CreateNamespace=true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
   name: loki-stack
   namespace: argocd
   finalizers:
@@ -106,3 +49,105 @@ spec:
     automated: {}
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-stack
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: grafana-stack
+spec:
+  project: default
+  source:
+    repoURL: 'https://grafana.github.io/helm-charts'
+    targetRevision: 6.57.3
+    helm:
+      valueFiles:
+        - values.yaml
+      values: |-
+        adminPassword: admin
+        datasources:
+          datasources.yaml:
+            apiVersion: 1
+            datasources:
+            - name: Prometheus
+              type: prometheus
+              url: http://prometheus-service:8080
+              access: proxy
+              isDefault: true
+            - name: Loki
+              type: loki
+              access: proxy
+              url: http://loki-stack:3100
+        service:
+          enabled: true
+          type: LoadBalancer
+    chart: grafana
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: monitoring
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
+---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kube-prometheus-stack-crds
+#   namespace: argocd
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+#   labels:
+#     name: kube-prometheus-stack-crds
+# spec:
+#   project: default
+#   source:
+#     repoURL: 'https://prometheus-community.github.io/helm-charts'
+#     targetRevision: 4.0.2
+#     helm:
+#       valueFiles:
+#         - values.yaml
+#     chart: prometheus-operator-crds
+#   destination:
+#     server: 'https://kubernetes.default.svc'
+#     namespace: monitoring
+#   syncPolicy:
+#     automated: {}
+#     syncOptions:
+#       - ServerSideApply=true
+#       - CreateNamespace=true
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   finalizers:
+#   - resources-finalizer.argocd.argoproj.io
+#   name: kube-prometheus-stack
+#   namespace: argocd
+# spec:
+#   destination:
+#     namespace: monitoring
+#     server: https://kubernetes.default.svc
+#   project: default
+#   source:
+#     chart: kube-prometheus-stack
+#     helm:
+#       values: |-
+#         prometheus-node-exporter:
+#            hostRootFsMount:
+#              enabled: false
+#         prometheusOperator:
+#            admissionWebhooks:
+#              failurePolicy: Ignore
+#     repoURL: https://prometheus-community.github.io/helm-charts
+#     targetRevision: 42.0.3
+#   syncPolicy:
+#     automated: {}
+#     syncOptions:
+#     - ServerSideApply=true
+#     - CreateNamespace=true
+# ---

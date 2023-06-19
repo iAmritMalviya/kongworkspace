@@ -6,3 +6,5 @@
       --from-literal=pg_host="enterprise-postgresql.kong.svc.cluster.local" \
       --from-literal=kong_admin_password=kong \
       --from-literal=password=kong
+
+kubectl patch service kube-prometheus-stack-grafana -p '{"spec": {"type": "ClusterIP"}}' -n monitoring

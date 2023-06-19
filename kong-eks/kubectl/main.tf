@@ -12,6 +12,8 @@ resource "null_resource" "kubectl" {
       kubectl apply -f ${path.module}/kic.yaml
       sleep 5
       kubectl apply -f ${path.module}/obeservability.yaml
+      sleep 5
+      kubectl apply -f ${path.module}/prometheus.yaml
     EOT
   }
 }

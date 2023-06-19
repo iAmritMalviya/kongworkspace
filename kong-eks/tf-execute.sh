@@ -5,14 +5,6 @@
 
 export tf_code_dir="."
 
-#Terraform Variables
-# export TF_VAR_aws_region="us-east-1"
-# export TF_VAR_cluster_name="kong-sandbox"
-# export TF_VAR_vpc_cidr_block="172.91.0.0/16"
-# export TF_VAR_disk_size="20"
-# export TF_VAR_instance_types="t3.medium"
-# export TF_VAR_no_of_public_subnet="2"
-
 cd $tf_code_dir
 
 #Terraform to Deploy EKS Cluster
