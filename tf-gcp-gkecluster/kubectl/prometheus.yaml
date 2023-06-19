@@ -1,0 +1,70 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongClusterPlugin
+metadata:
+  name: kong-prometheus
+plugin: prometheus
+config:
+  per_consumer: false
+--
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: rate-limiting-plugin
+config:
+  policy: local
+  limit_by: ip
+  minute: 3
+plugin: rate-limiting
+
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: jwt-plugin
+config:
+  header_names:
+  - Authorization
+  key_claim_name: kid
+  claims_to_verify:
+  - exp
+plugin: jwt
+
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: response-transformer-plugin
+config:
+  add:
+    json:
+    - p1:v1
+    - p2=v2
+    headers:
+    - h1:v1
+plugin: response-transformer
+----
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  labels:
+    app.kubernetes.io/instance: kong-gateway
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: kong
+    app.kubernetes.io/version: "3.3"
+    argocd.argoproj.io/instance: kong-gateway
+    helm.sh/chart: kong-2.23.0
+    konghq.com/component: sandbox
+  name: kong-gateway-kong-proxy
+  namespace: kong
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: kong-gateway-kong-proxy
+            port:
+              number: 443
+        path: /
+        pathType: ImplementationSpecific

@@ -1,0 +1,4 @@
+project_id = "intverse"
+cluster_name = "triggermesh"
+region     = "us-central1"
+location     = "us-central1-f"

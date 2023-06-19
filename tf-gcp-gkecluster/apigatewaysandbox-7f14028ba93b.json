@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "apigatewaysandbox",
+  "private_key_id": "7f14028ba93b55ed543e06bc5ba5ed70685c4f9f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCzq5Hh+hx7S381\n9laus9UenSSd4dGlqC2nFG3Sn0FAYK+EDUgRqWuPga5DzFAlV7OGz7L83D5cZSNV\nVkuLNJ/QAuLdsti9Axauy9rcg3Q0ZEnThEQtbQYNK4Z+MhJUf/KlJT/+xWhEC9vq\n2O4bTJwXmqD/PaUsAQfOLL6t0oHNepBTPCpsQHaOEZ3B3S1CPacCXkOMdIT2vGcZ\npTBJL9OMvbxg8Qq/bONvZJIaMxYdZD7ozbGpiGbEWHWKwrZKJMsHx9bBP3xCZkW0\nhq+GJa7YTvgBy7B9Zz9epcAw8zcnhfDZXgNLo6Pxdhy1jin/XhvO9Iua8kY/xrmE\nf3A/ML9FAgMBAAECggEABMMtUP7a8ennCfeVxetprWlpBTYgfNWRVJ6UdNlSHRvi\n+YS+znI98fyA1/aETYhLVfob6oFtz4lCKQ33Elr9yg4r7fuPX97QCcHI2ZoynC/o\nJNvnUO5VBns+OHECoaxDJeovzdF1CWnodXHOFlNCLb4xLcrRxCT72SGmmHKeJhbh\n+MPmsYFErQEGIc6IL0X6ZG3gChVIV7BNBoPiq+7IJXoVoYGAATq+wdWRhbXcZqCj\nVYcAwpxi55NDV7BeZuN9xIs4hYI4pMDGH8CfGGqmqHG3WNh6ZQu4DTa2Hq1JVmPy\ntkwvVKka+YNa8lSiGZuZmeoVO5Nky+VGXldAbCuNIQKBgQDdMBqt6KpHk3/p/9nb\n/Eg9+0Yv8jTQBJIX6UOC/X3N6UCxvuK7AfAekGOFWcGmLNkeIvn4VKTkwj7fS8IC\nPIUgCvx0AQyXBIDdih95wlVkYW6esGpuKGTSBLQOS9L+pT5cK3+HY8RfcudaojqQ\nLxrJceUAUbRp96Vr+mo79AKnZQKBgQDP8qxC6hYs4CGjbMuixFMcnc32akUgTN8C\neWw835uj0muoigA8fVaSwR033CSzgInHJDIouZImsoiRJZosbBKfCcO4aU3v6FqY\n38qf6mrLh6DmpjVf2KiTzz1XWp0qF6V5zqqOBnmhUZG4AUbob4I1qVkWosVkMXvf\ngUCldinqYQKBgQCGEZ5aQ2jTMcia4YYAHY78Ys5MSZdRbzPOYomVYGlc4kFge7+a\ncrZFEGgCcEE8pHqGFdVGfKfmMQdC+fyCtoRKw935wpkLAKPLpOknOG/iBFy0u2IH\nm1xhIJCzCaq+xxJhc8w9GG/zGwa4nRS6SJMH/407AEtG3+DY7lRuOp1RMQKBgDt6\nRK0q+UbCoLx2rNQUZVVFCZkWkkkH062If1318zVrRSHCvwiOLQnytGG61MCG3mGY\nR8SAN35cCFXDtJJKIxVcHKANdp5NDkS1leYhjYRDedEe7xtIBAeq+feXUmastsbd\nRskyru1mQFCqBNcMteiVVIb17ZGX2b9237+zyY9hAoGAWmr0ShdK9u5JPbUyWLP8\nW7iJ6eCMOqqCHODKhy1qRJ0jL5vWJNV4ss8GKF0hZ2n1wiFMPDPxwkAniCSsOSGt\n14VXTR50NuEocErfzPv7rJJnqSgfJEGWxQ8Xk7/r4hIwQamj2sm54TR970vOD3Sn\nhy7gwmwBDu3Bpiuw8xcAnLQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "terraform@apigatewaysandbox.iam.gserviceaccount.com",
+  "client_id": "112409425950586668870",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/terraform%40apigatewaysandbox.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
