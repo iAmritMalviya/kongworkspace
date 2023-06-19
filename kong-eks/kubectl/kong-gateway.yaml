@@ -14,6 +14,11 @@ spec:
     repoURL: 'https://charts.konghq.com'
     targetRevision: 2.23.0
     helm:
+      parameters:
+        - name: proxy.ingress.ingressClassName
+          value: kong
+        - name: serviceMonitor.enabled
+          value: 'true'
       values: |-
         admin:
           annotations:
@@ -181,7 +186,7 @@ spec:
           image:
             repository: docker.io/kong/kubernetes-ingress-controller
             tag: "2.10"
-          ingressClass: default
+          ingressClass: kong
           installCRDs: false
         manager:
           annotations:
@@ -214,6 +219,9 @@ spec:
         namespace: kong
         podAnnotations:
           kuma.io/gateway: enabled
+          prometheus.io/port: "8100"
+          prometheus.io/scrape: "true"
+          prometheus.io/path: "/metrics"
         portal:
           annotations:
             konghq.com/protocol: https
@@ -295,7 +303,7 @@ spec:
             enabled: true
           tls:
             containerPort: 8543
-            enabled: true
+            enabled: flase
         updateStrategy:
           rollingUpdate:
             maxSurge: 100%
