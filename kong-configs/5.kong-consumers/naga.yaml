@@ -1,10 +1,10 @@
-# ---
-# apiVersion: configuration.konghq.com/v1
-# kind: KongConsumer
-# metadata:
-#  name: naga
-#  annotations:
-#    kubernetes.io/ingress.class: kong
-# username: naga
-# credentials:
-#   - naga-key-auth
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+ name: naga
+ annotations:
+   kubernetes.io/ingress.class: kong
+username: naga
+credentials:
+  - naga-key-auth

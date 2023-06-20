@@ -1,15 +1,15 @@
-# ---
-# apiVersion: configuration.konghq.com/v1
-# kind: KongClusterPlugin
-# plugin: request-transformer
-# metadata:
-#   name: global-request-transformer
-#   annotations:
-#     kubernetes.io/ingress.class: kong
-#   labels:
-#     global: "true"
-# config:
-#   add:
-#     headers:
-#     - x-new-header:requestvalueOne
-#     - x-another-header:requestvalueTwo
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongClusterPlugin
+plugin: request-transformer
+metadata:
+  name: global-request-transformer
+  annotations:
+    kubernetes.io/ingress.class: kong
+  labels:
+    global: "true"
+config:
+  add:
+    headers:
+    - x-new-header:requestvalueOne
+    - x-another-header:requestvalueTwo
