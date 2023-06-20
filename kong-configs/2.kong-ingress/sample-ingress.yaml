@@ -15,7 +15,7 @@ metadata:
   annotations:
    konghq.com/strip-path: 'true'
    konghq.com/plugins: request-id
-   konghq.com/plugins: key-auth-plugin, basic-auth-plugin, global-request-transformer, global-rate-limiting    
+   konghq.com/plugins: key-auth-plugin, basic-auth-plugin, global-request-transformer, global-rate-limiting, global-prometheus   
 spec:
   ingressClassName: kong
   rules:
