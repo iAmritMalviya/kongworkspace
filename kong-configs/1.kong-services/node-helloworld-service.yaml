@@ -27,7 +27,7 @@ kind: Service
 metadata:
   labels:
     app: node-helloworld-service-app
-  name: node-helloworld-serivce
+  name: node-helloworld-service
   annotations:
     konghq.com/plugins: node-helloworld-service-rate-limiting
   namespace: default

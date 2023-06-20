@@ -32,13 +32,13 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: node-helloworld-serivce
+            name: node-helloworld-service
             port:
               number: 8080  
       - path: /my-service-three
         pathType: ImplementationSpecific
         backend:
           service:
-            name: kong-demo-serivce
+            name: kong-demo-service
             port:
               number: 8080  
