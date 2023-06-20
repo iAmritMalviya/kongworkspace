@@ -15,7 +15,7 @@ metadata:
   annotations:
    konghq.com/strip-path: 'true'
    konghq.com/plugins: request-id
-   konghq.com/plugins: key-auth-plugin, basic-auth-plugin, global-request-transformer, global-rate-limiting, global-prometheus   
+   konghq.com/plugins: key-auth-plugin, basic-auth-plugin, global-response-transformer, global-rate-limiting, global-prometheus   
 spec:
   ingressClassName: kong
   rules:
@@ -32,6 +32,13 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: my-service-two
+            name: node-helloworld-serivce
+            port:
+              number: 8080  
+      - path: /my-service-three
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: kong-demo-serivce
             port:
               number: 8080  

@@ -1,9 +1,9 @@
 ---
 apiVersion: configuration.konghq.com/v1
 kind: KongClusterPlugin
-plugin: request-transformer
+plugin: response-transformer
 metadata:
-  name: global-request-transformer
+  name: global-response-transformer
   annotations:
     kubernetes.io/ingress.class: kong
   labels:
@@ -11,5 +11,5 @@ metadata:
 config:
   add:
     headers:
-    - x-new-header:requestvalueOne
-    - x-another-header:requestvalueTwo
+    - x-new-header:responsevalueOne
+    - x-another-header:responsevalueTwo

@@ -3,22 +3,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
      labels:
-       app: node-helloworld-service-app
-     name: node-helloworld-deployment
+       app: kong-demo-service-app
+     name: kong-demo-dep
      namespace: default
 spec:
      replicas: 1
      selector:
        matchLabels:
-         app: node-helloworld-service-app
+         app: kong-demo-service-app
      template:
        metadata:
          labels:
-           app: node-helloworld-service-app
+           app: kong-demo-service-app
        spec:
          containers:
-         - image: gcr.io/google-samples/node-hello:1.0
-           name: hello-world
+         - image: nede1/kong-demo-api:latest
+           name: kong-demo-api
            ports:
            - containerPort: 8080
 ---
@@ -26,10 +26,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: node-helloworld-service-app
-  name: node-helloworld-serivce
-  annotations:
-    konghq.com/plugins: node-helloworld-service-rate-limiting
+    app: kong-demo-service-app
+  name: kong-demo-service
   namespace: default
 spec:
   ports:
@@ -37,4 +35,4 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: node-helloworld-service-app 
+    app: kong-demo-service-app 
