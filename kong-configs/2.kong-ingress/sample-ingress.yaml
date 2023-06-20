@@ -1,37 +1,37 @@
----
-apiVersion: networking.k8s.io/v1
-kind: IngressClass
-metadata:
-  name: sample-ingress-class
-  namespace: default  
-spec:
-  controller: ingress-controllers.konghq.com/kong
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: sample-ingress
-  namespace: default  
-  annotations:
-   konghq.com/strip-path: 'true'
-   konghq.com/plugins: request-id
-   konghq.com/plugins: key-auth-plugin, basic-auth-plugin, global-request-transformer, global-rate-limiting, global-prometheus   
-spec:
-  ingressClassName: kong
-  rules:
-  - http:
-      paths:
-      - path: /my-service-one
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: restapiexample
-            port:
-              number: 443               
-      - path: /my-service-two
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: my-service-two
-            port:
-              number: 8080  
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: IngressClass
+# metadata:
+#   name: sample-ingress-class
+#   namespace: kong  
+# spec:
+#   controller: ingress-controllers.konghq.com/kong
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: sample-ingress
+#   namespace: default  
+#   annotations:
+#    konghq.com/strip-path: 'true'
+#    konghq.com/plugins: request-id
+#    konghq.com/plugins: key-auth-plugin, basic-auth-plugin, global-request-transformer, global-rate-limiting, global-prometheus   
+# spec:
+#   ingressClassName: kong
+#   rules:
+#   - http:
+#       paths:
+#       - path: /my-service-one
+#         pathType: ImplementationSpecific
+#         backend:
+#           service:
+#             name: restapiexample
+#             port:
+#               number: 443               
+#       - path: /my-service-two
+#         pathType: ImplementationSpecific
+#         backend:
+#           service:
+#             name: my-service-two
+#             port:
+#               number: 8080  
