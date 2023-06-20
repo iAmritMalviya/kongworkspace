@@ -2,8 +2,8 @@
 apiVersion: configuration.konghq.com/v1
 kind: KongPlugin
 metadata:
-  name: restapiexample-service-rate-limiting
+  name: kong-demo-service-rate-limiting
 plugin: rate-limiting
 config:
-  minute: 4
+  minute: 3
   policy: local

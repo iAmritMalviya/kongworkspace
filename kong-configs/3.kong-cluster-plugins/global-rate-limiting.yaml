@@ -9,7 +9,7 @@ metadata:
  labels:
    global: "true"
 config:
- minute: 3
+ minute: 1
  limit_by: ip
  policy: local
 plugin: rate-limiting
