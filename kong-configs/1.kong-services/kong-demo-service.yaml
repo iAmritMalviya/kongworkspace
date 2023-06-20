@@ -19,6 +19,7 @@ spec:
          containers:
          - image: nede1/kong-demo-api:latest
            name: kong-demo-api
+           imagePullPolicy: Always          
            ports:
            - containerPort: 8080
 ---
