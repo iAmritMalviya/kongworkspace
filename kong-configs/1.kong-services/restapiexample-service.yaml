@@ -4,7 +4,7 @@ kind: Service
 metadata:
   annotations:
     konghq.com/protocol: https
-    konghq.com/plugins: restapiexample-service-rate-limiting, response-transformer-example  
+    konghq.com/plugins: restapiexample-service-rate-limiting 
   name: restapiexample
 spec:
   externalName: dummy.restapiexample.com

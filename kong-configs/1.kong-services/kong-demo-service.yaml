@@ -30,7 +30,7 @@ metadata:
     app: kong-demo-service-app
   name: kong-demo-service
   annotations:
-    konghq.com/plugins: kong-demo-service-rate-limiting
+    konghq.com/plugins: kong-demo-service-rate-limiting, response-transformer-example
   namespace: default
 spec:
   ports:
