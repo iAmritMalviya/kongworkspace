@@ -29,8 +29,8 @@ metadata:
   labels:
     app: kong-demo-service-app
   name: kong-demo-service
-  # annotations:
-  #   konghq.com/plugins: kong-demo-service-rate-limiting  
+  annotations:
+    konghq.com/plugins: kong-demo-service-rate-limiting  
   namespace: default
 spec:
   ports:
