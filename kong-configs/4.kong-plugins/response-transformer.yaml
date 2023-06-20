@@ -7,5 +7,5 @@ plugin: response-transformer
 config:
   add:
     headers:
-    - x-new-header:responsevalueOne
-    - x-another-header:responsevalueTwo
+    - x-service-header-one:responsevalueOne
+    - x-service-header-two:responsevalueTwo

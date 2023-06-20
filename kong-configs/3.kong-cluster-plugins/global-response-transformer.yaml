@@ -11,5 +11,5 @@ metadata:
 config:
   add:
     headers:
-    - x-new-header:responsevalueOne
-    - x-another-header:responsevalueTwo
+    - x-global-header-one:responsevalueOne
+    - x-global-header-two:responsevalueTwo
