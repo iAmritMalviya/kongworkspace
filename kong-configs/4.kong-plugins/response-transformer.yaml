@@ -6,6 +6,6 @@ metadata:
 plugin: response-transformer
 config:
   add:
-    body:
-    - x-service-body-one:responsevalueOne
-    - x-service-body-two:responsevalueTwo
+    json:
+    - new-json-key:some_value
+    - another-json-key:some_value
