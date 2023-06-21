@@ -28,7 +28,7 @@ kind: Service
 metadata:
   labels:
     app: kong-demo-service-app
-  name: kong-demo-service
+  name: java-helloworld-service
   annotations:
     konghq.com/plugins: kong-demo-service-rate-limiting, response-transformer-example
   namespace: default
