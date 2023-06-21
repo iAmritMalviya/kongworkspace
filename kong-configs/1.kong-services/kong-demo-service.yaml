@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
      labels:
        app: kong-demo-service-app
-     name: kong-demo-dep
+     name: kong-demo-deployment
      namespace: default
 spec:
      replicas: 1
