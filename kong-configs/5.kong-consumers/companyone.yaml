@@ -2,9 +2,9 @@
 apiVersion: configuration.konghq.com/v1
 kind: KongConsumer
 metadata:
- name: naga
+ name: companyone
  annotations:
    kubernetes.io/ingress.class: kong
-username: naga
+username: companyone
 credentials:
-  - naga-key-auth
+  - companyone-key-auth
